@@ -10,13 +10,11 @@ const testFiles = readdirSync(FIXTURE_PATH).filter(file => (
 ));
 
 const testNames = testFiles.map(file => basename(file, '.js'));
-const translationJSON = readFileSync(join(FIXTURE_PATH, 'translations.json'), 'utf8');
-const translations = JSON.parse(translationJSON);
 
 testNames.forEach((name) => {
   test(name, () => {
     const source = readFileSync(join(FIXTURE_PATH, `${name}.js`), 'utf8');
-    const result = testPlugin(source, translations);
+    const result = testPlugin(source);
     expect(result).toMatchSnapshot();
   });
 });

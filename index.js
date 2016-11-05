@@ -119,15 +119,31 @@ function createObjectPropertiesForTranslation(t, keypath, translation) {
   });
 }
 
+function loadTranslationsToMemory(opts) {
+  if (!opts || !opts.translationLoader) {
+    return null;
+  }
+  const translationLoader = require(opts.translationLoader);
+  return translationLoader();
+}
+
 module.exports = function translatePlugin({types: t}) {
   return {
     visitor: {
-      CallExpression(path, { opts: { translations } }) {
+      CallExpression(path, { opts }) {
+        this.translations = this.translations || loadTranslationsToMemory(opts);
+        if (!this.translations) {
+          throw new Error(
+            'babel-plugin-i18n: No translations found.\n' +
+            'Use "translationLoader" option by passing a path to a\n ' +
+            'module that exports a function returning your translations'
+          );
+        }
         const funcName = path.node.callee.name;
         if (funcName === '__') {
-          replaceKeypathWithString(t, path, translations);
+          replaceKeypathWithString(t, path, this.translations);
         } else if (funcName === '__obj') {
-          replaceKeypathWithObject(t, path, translations);
+          replaceKeypathWithObject(t, path, this.translations);
         }
       },
     },
