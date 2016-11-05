@@ -84,10 +84,25 @@ function replaceKeypathWithObject(t, path, translations) {
   }
 }
 
+function astLiteralOrDeepObject(t, keypath, value) {
+  if (Array.isArray(value)) {
+    return value.map(item => astLiteralOrDeepObject(t, keypath, item));
+  } else if (value !== null && typeof value === 'object') {
+    return createObjectPropertiesForTranslation(t, keypath, value);
+  }
+  return getAstLiteralForTranslation(t, keypath, value);
+}
+
 function createObjectPropertiesForTranslation(t, keypath, translation) {
   return Object.keys(translation).map(key => {
     const value = translation[key];
-    if (value !== null && typeof value === 'object') {
+    if (Array.isArray(value)) {
+      const elements = value.map(item => astLiteralOrDeepObject(t, keypath, item));
+      return t.ObjectProperty(
+        t.Identifier(key),
+        t.ArrayExpression(elements)
+      );
+    } else if (value !== null && typeof value === 'object') {
       return t.ObjectProperty(
         t.Identifier(key),
         t.ObjectExpression(createObjectPropertiesForTranslation(t, keypath, value))

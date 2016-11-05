@@ -8,7 +8,8 @@ console.log(categories.party);
 const otherDataTypes = {
   boolean: false,
   null: null,
-  number: 42
+  number: 42,
+  array: [1, 2, 3]
 };
 console.log(otherDataTypes);"
 `;

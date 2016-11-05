@@ -6,6 +6,7 @@
   "other_data_types": {
     "boolean": false,
     "null": null,
-    "number": 42
+    "number": 42,
+    "array": [1, 2, 3]
   }
 }
