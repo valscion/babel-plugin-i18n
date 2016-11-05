@@ -1,6 +1,6 @@
 const testPlugin = require('./testPlugin');
 
-describe('__() errors', () => {
+describe.skip('__() errors', () => {
   test('throwing error for missing value', () => {
     const code = '__("missing")';
     const translations = {};
@@ -33,7 +33,7 @@ describe('__() errors', () => {
 });
 
 
-describe('__obj() errors', () => {
+describe.skip('__obj() errors', () => {
   test('throwing error for missing value', () => {
     const code = '__obj("missing")';
     const translations = {};
