@@ -1,3 +1,11 @@
+exports[`test objects 1`] = `
+"const categories = {
+  party: \'Party\',
+  wedding: \'Wedding\'
+};
+console.log(categories.party);"
+`;
+
 exports[`test strings 1`] = `
 "\'Hello, world!\';
 \'Two levels deep translation\';
