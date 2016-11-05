@@ -51,6 +51,7 @@ describe('__obj() errors', () => {
     { type: 'number', value: 123 },
     { type: 'boolean', value: false },
     { type: 'null', value: null },
+    { type: 'array', value: [1, 2, 3] },
   ].map(({ type, value }) => {
     test(`does not allow ${type} to come through`, () => {
       const code = '__obj("key")';

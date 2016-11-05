@@ -77,6 +77,9 @@ function replaceKeypathWithObject(t, path, translations) {
     if (typeof translation !== 'object') {
       throw new KeypathTypeError(keypath, translation, 'object');
     }
+    if (Array.isArray(translation)) {
+      throw new KeypathTypeError(keypath, translation, 'array');
+    }
     const objProperties = createObjectPropertiesForTranslation(t, keypath, translation);
     path.replaceWith(t.ObjectExpression(objProperties));
   } catch (ex) {
