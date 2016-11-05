@@ -72,7 +72,7 @@
     /**
      * Possible errors
      */
-    "comma-dangle": ["warn", "never"],
+    "comma-dangle": ["warn", "always-multiline"],
     "no-cond-assign": ["error", "always"],
     "no-console": "warn",
     "no-debugger": "warn",
