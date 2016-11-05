@@ -27,10 +27,10 @@ function resolveKeypath(keypath, translations) {
 
 function getKeypath(path) {
   const translationArguments = path.node.arguments;
-  if (translationArguments.length !== 1) {
-    throw path.buildCodeFrameError('Translating requires one argument exactly');
+  if (translationArguments.length < 1 || translationArguments.length > 2) {
+    throw path.buildCodeFrameError('Translating requires one or two arguments');
   }
-  const keypathArg = translationArguments[0];
+  const keypathArg = translationArguments[translationArguments.length - 1];
   if (keypathArg.type !== 'StringLiteral') {
     throw path.buildCodeFrameError('Only strings can be used for translation');
   }
@@ -65,7 +65,13 @@ function replaceKeypathWithString(t, path, translations) {
     const literal = getAstLiteralForTranslation(t, keypath, translation);
     path.replaceWith(literal);
   } catch (ex) {
-    throw path.buildCodeFrameError(ex);
+    if (ex instanceof PathNotFoundError && path.node.arguments.length === 2) {
+      const defaultValueArgument = path.node.arguments[0].value;
+      const defaultLiteral = getAstLiteralForTranslation(t, 'default value', defaultValueArgument);
+      path.replaceWith(defaultLiteral);
+    } else {
+      throw path.buildCodeFrameError(ex);
+    }
   }
 }
 

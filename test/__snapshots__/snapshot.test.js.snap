@@ -31,5 +31,7 @@ const veryNested = \'Very nested object\';
 
 const numberOne = 1;
 const booleanTrue = true;
-const thisIsNull = null;"
+const thisIsNull = null;
+
+const withDefaultValue = \'This is the default\';"
 `;
