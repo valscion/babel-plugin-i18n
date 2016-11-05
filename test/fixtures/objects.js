@@ -3,3 +3,5 @@ console.log(categories.party);
 
 const otherDataTypes = __obj('other_data_types');
 console.log(otherDataTypes);
+
+const deep = __obj('we.can');

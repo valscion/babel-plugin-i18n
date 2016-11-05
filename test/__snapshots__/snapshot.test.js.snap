@@ -11,7 +11,17 @@ const otherDataTypes = {
   number: 42,
   array: [1, 2, 3]
 };
-console.log(otherDataTypes);"
+console.log(otherDataTypes);
+
+const deep = {
+  go: {
+    deep: \'easily\'
+  },
+  sing: [\'Is this the real life?\', \'Is this just fantasy?\', \'(Enjoy singing the rest of the song in your head)\', \'[Credits: https://git.io/vX89j]\'],
+  reach: {
+    the stars: \'******\'
+  }
+};"
 `;
 
 exports[`test strings 1`] = `
