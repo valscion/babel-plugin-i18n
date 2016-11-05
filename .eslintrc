@@ -1,0 +1,239 @@
+{
+  "plugins": ["import", "flowtype"],
+
+  "settings": {},
+
+  "env": {
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "globalReturn": false
+    }
+  },
+
+  "globals": {
+    "__": false,
+    "__obj": false
+  },
+
+  "rules": {
+    /**
+     * Strict mode
+     */
+    "strict": ["error", "global"],
+
+    /**
+     * ES6
+     */
+    "arrow-parens": "off",
+    "arrow-spacing": "warn",
+    "constructor-super": "error",
+    "generator-star-spacing": "warn",
+    "no-class-assign": "warn",
+    "no-const-assign": "error",
+    "no-dupe-class-members": "error",
+    "no-this-before-super": "error",
+    "no-var": "warn",
+    "object-shorthand": "off",
+    "prefer-arrow-callback": "warn",
+    "prefer-const": "warn",
+    "prefer-spread": "warn",
+    "prefer-reflect": "off",
+    "prefer-template": "warn",
+    "require-yield": "warn",
+
+    /**
+     * Variables
+     */
+    "init-declarations": "off",
+    "no-catch-shadow": "warn",
+    "no-delete-var": "error",
+    "no-label-var": "off",
+    "no-shadow": "error",
+    "no-shadow-restricted-names": "error",
+    "no-undef-init": "warn",
+    "no-undef": "error",
+    "no-undefined": "off",
+    "no-unused-vars": ["warn", {
+      "vars": "local",
+      "varsIgnorePattern": "^_",
+      "args": "after-used",
+      "argsIgnorePattern": "^_"
+    }],
+    "no-use-before-define": "off",
+    "no-void": "warn",
+
+    /**
+     * Possible errors
+     */
+    "comma-dangle": ["warn", "never"],
+    "no-cond-assign": ["error", "always"],
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "no-alert": "warn",
+    "no-constant-condition": "warn",
+    "no-dupe-args": "error",
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "no-empty": "error",
+    "no-ex-assign": "warn",
+    "no-extra-boolean-cast": "warn",
+    "no-extra-semi": "error",
+    "no-func-assign": "error",
+    "no-inner-declarations": "error",
+    "no-invalid-regexp": "error",
+    "no-irregular-whitespace": "error",
+    "no-negated-in-lhs": "off",
+    "no-obj-calls": "error",
+    "no-sparse-arrays": "error",
+    "no-unreachable": "error",
+    "use-isnan": "error",
+    "valid-jsdoc": "off",
+    "valid-typeof": "error",
+    "no-unexpected-multiline": "warn",
+
+    /**
+     * Best practices
+     */
+    "block-scoped-var": "warn",
+    "consistent-return": "warn",
+    "curly": ["warn", "multi-line"],
+    "default-case": "warn",
+    "dot-notation": "off",
+    "eqeqeq": "warn",
+    "guard-for-in": "warn",
+    "no-caller": "warn",
+    "no-else-return": "off",
+    "no-eq-null": "warn",
+    "no-eval": "warn",
+    "no-extend-native": "warn",
+    "no-extra-bind": "warn",
+    "no-fallthrough": "warn",
+    "no-floating-decimal": "warn",
+    "no-implied-eval": "warn",
+    "no-lone-blocks": "warn",
+    "no-loop-func": "warn",
+    "no-multi-str": "warn",
+    "no-native-reassign": "error",
+    "no-new": "warn",
+    "no-new-func": "warn",
+    "no-new-wrappers": "warn",
+    "no-octal": "warn",
+    "no-octal-escape": "warn",
+    "no-param-reassign": "warn",
+    "no-proto": "warn",
+    "no-redeclare": "warn",
+    "no-return-assign": "warn",
+    "no-script-url": "warn",
+    "no-self-compare": "warn",
+    "no-sequences": "warn",
+    "no-throw-literal": "warn",
+    "no-with": "warn",
+    "radix": "warn",
+    "vars-on-top": "off",
+    "wrap-iife": ["warn", "any"],
+    "yoda": "warn",
+
+    /**
+     * Style
+     */
+    "indent": ["warn", 2, {
+      "SwitchCase": 1
+    }],
+    "max-len": ["warn", 100, 4],
+    "brace-style": [
+      1,
+      "1tbs", {
+        "allowSingleLine": true
+      }
+    ],
+    "quotes": [
+      1, "single", "avoid-escape"
+    ],
+    "camelcase": ["warn", {
+      "properties": "never"
+    }],
+    "comma-spacing": ["warn", {
+      "before": false,
+      "after": true
+    }],
+    "comma-style": ["warn", "last"],
+    "eol-last": "warn",
+    "func-names": "off",
+    "key-spacing": [0, {
+      "beforeColon": false,
+      "afterColon": true
+    }],
+    "keyword-spacing": ["warn", {
+      "before": true,
+      "after": true,
+      "overrides": {}
+    }],
+    "new-cap": "off",
+    "no-multiple-empty-lines": ["warn", {
+      "max": 2
+    }],
+    "no-nested-ternary": "warn",
+    "no-new-object": "warn",
+    "no-spaced-func": "warn",
+    "no-trailing-spaces": "warn",
+    "no-extra-parens": ["warn", "functions"],
+    "no-underscore-dangle": "off",
+    "one-var": ["warn", "never"],
+    "padded-blocks": ["warn", "never"],
+    "semi": ["warn", "always"],
+    "semi-spacing": ["warn", {
+      "before": false,
+      "after": true
+    }],
+    "space-before-blocks": "warn",
+    "space-before-function-paren": ["warn", "never"],
+    "space-infix-ops": "warn",
+    "spaced-comment": ["warn", "always", {
+      "exceptions": ["-"]
+    }],
+
+    /**
+     * Import linting
+     * https://github.com/benmosher/eslint-plugin-import
+     */
+    "import/no-unresolved": ["error", {
+      "commonjs": true,
+      "amd": true
+    }],
+    "import/named": "error",
+    "import/namespace": "error",
+    "import/default": "error",
+    "import/export": "error",
+    "import/no-named-as-default": "warn",
+    "import/no-duplicates": "warn",
+
+    /**
+     * Type declaration rules
+     * https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules
+     */
+    "flowtype/define-flow-type": "warn",
+    "flowtype/use-flow-type": "warn",
+    "flowtype/boolean-style": ["warn", "boolean"],
+    "flowtype/delimiter-dangle": ["warn", "never"],
+    "flowtype/generic-spacing": ["warn", "never"],
+    "flowtype/no-dupe-keys": "error",
+    "flowtype/no-weak-types": "off",
+    "flowtype/require-parameter-type": "off",
+    "flowtype/require-return-type": "off",
+    "flowtype/require-valid-file-annotation": "error",
+    "flowtype/semi": ["warn", "always"],
+    "flowtype/space-after-type-colon": ["warn", "always"],
+    "flowtype/space-before-generic-bracket": ["warn", "never"],
+    "flowtype/space-before-type-colon": ["warn", "never"],
+    "flowtype/type-id-match": ["warn", "^[A-Z].*$"],
+    "flowtype/union-intersection-spacing": ["warn", always],
+    "flowtype/valid-syntax": "error"
+  }
+}

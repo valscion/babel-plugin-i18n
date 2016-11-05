@@ -7,7 +7,8 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "flow": "flow status",
-    "flow:check": "flow check"
+    "flow:check": "flow check",
+    "lint": "eslint ."
   },
   "keywords": [
     "babel",
@@ -18,6 +19,9 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^3.9.1",
+    "eslint-plugin-flowtype": "^2.25.0",
+    "eslint-plugin-import": "^2.1.0",
     "flow-bin": "^0.34.0",
     "jest": "^16.0.2"
   }
