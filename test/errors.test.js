@@ -31,3 +31,31 @@ describe('__() errors', () => {
     expect(() => testPlugin(code, translations)).toThrowError(/incorrect type.*'function'/);
   });
 });
+
+
+describe('__obj() errors', () => {
+  test('throwing error for missing value', () => {
+    const code = '__obj("missing")';
+    const translations = {};
+    expect(() => testPlugin(code, translations)).toThrowError(/missing/);
+  });
+
+  test('tells what part is missing', () => {
+    const code = '__obj("exists.missing.more")';
+    const translations = { exists: { foo: 'bar' } };
+    expect(() => testPlugin(code, translations)).toThrowError(/'missing'/);
+  });
+
+  [
+    { type: 'string', value: 'incorrectly string' },
+    { type: 'number', value: 123 },
+    { type: 'boolean', value: false },
+    { type: 'null', value: null },
+  ].map(({ type, value }) => {
+    test(`does not allow ${type} to come through`, () => {
+      const code = '__obj("key")';
+      const translations = { key: value };
+      expect(() => testPlugin(code, translations)).toThrow();
+    });
+  });
+});
