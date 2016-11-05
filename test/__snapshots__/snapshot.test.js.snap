@@ -3,7 +3,14 @@ exports[`test objects 1`] = `
   party: \'Party\',
   wedding: \'Wedding\'
 };
-console.log(categories.party);"
+console.log(categories.party);
+
+const otherDataTypes = {
+  boolean: false,
+  null: null,
+  number: 42
+};
+console.log(otherDataTypes);"
 `;
 
 exports[`test strings 1`] = `

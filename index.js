@@ -87,19 +87,17 @@ function replaceKeypathWithObject(t, path, translations) {
 function createObjectPropertiesForTranslation(t, keypath, translation) {
   return Object.keys(translation).map(key => {
     const value = translation[key];
-    if (typeof value === 'string') {
-      return t.ObjectProperty(
-        t.Identifier(key),
-        t.StringLiteral(value)
-      );
-    } else if (typeof value === 'object') {
+    if (value !== null && typeof value === 'object') {
       return t.ObjectProperty(
         t.Identifier(key),
         t.ObjectExpression(createObjectPropertiesForTranslation(t, keypath, value))
       );
-    } else {
-      throw new KeypathTypeError(key, value, ['string', 'object']);
     }
+    const literal = getAstLiteralForTranslation(t, keypath, value);
+    return t.ObjectProperty(
+      t.Identifier(key),
+      literal
+    );
   });
 }
 
