@@ -1,0 +1,16 @@
+{
+  "name": "babel-plugin-i18n",
+  "version": "1.0.0",
+  "description": "Statically convert translations to strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "babel",
+    "i18n",
+    "rails"
+  ],
+  "author": "Vesa Laakso <laakso.vesa@gmail.com>",
+  "license": "MIT"
+}
