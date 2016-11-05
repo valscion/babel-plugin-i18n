@@ -1,1 +1,5 @@
-exports[`test strings 1`] = `"\'Hello, world!\';"`;
+exports[`test strings 1`] = `
+"\'Hello, world!\';
+\'Two levels deep translation\';
+\'Very nested object\';"
+`;

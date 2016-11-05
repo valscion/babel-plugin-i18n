@@ -1,3 +1,15 @@
 {
-  "simple_string": "Hello, world!"
+  "simple_string": "Hello, world!",
+  "two_levels": {
+    "deep": "Two levels deep translation"
+  },
+  "nested": {
+    "object": {
+      "going": {
+        "very": {
+          "deep": "Very nested object"
+        }
+      }
+    }
+  }
 }
