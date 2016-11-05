@@ -52,7 +52,7 @@ $ npm install babel-plugin-i18n --save-dev
 ```json
 {
   "plugins": ["i18n", {
-    "translationLoader": "/absolute/path/to/translationLoader"
+    "translationLoader": "./path/to/translationLoader"
   }]
 }
 ```
@@ -66,7 +66,7 @@ TODO: How does one actually pass options via CLI?
 ```javascript
 require("babel-core").transform("code", {
   plugins: ["i18n", {
-    "translationLoader": "/absolute/path/to/translationLoader"
+    "translationLoader": "./path/to/translationLoader"
   }]
 });
 ```

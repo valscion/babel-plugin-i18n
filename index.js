@@ -1,3 +1,6 @@
+const { dirname, resolve } = require('path');
+const findBabelConfig = require('find-babel-config');
+
 class PathNotFoundError extends Error {
   constructor(keypath, failingPart) {
     super(`Keypath '${keypath}' did not resolve to any translation at path '${failingPart}'`);
@@ -125,19 +128,32 @@ function createObjectPropertiesForTranslation(t, keypath, translation) {
   });
 }
 
-function loadTranslationsToMemory(opts) {
+function loadTranslationsToMemory(opts, cwd) {
   if (!opts || !opts.translationLoader) {
     return null;
   }
-  const translationLoader = require(opts.translationLoader);
+  const path = resolve(cwd, opts.translationLoader);
+  const translationLoader = require(path);
   return translationLoader();
 }
 
 module.exports = function translatePlugin({types: t}) {
   return {
+    pre(file) {
+      const startPath = (file.opts.filename === 'unknown')
+          ? './'
+          : file.opts.filename;
+
+      const { file: babelFile } = findBabelConfig.sync(startPath);
+      this.moduleResolverCWD = babelFile
+          ? dirname(babelFile)
+          : process.cwd();
+    },
+
     visitor: {
       CallExpression(path, { opts }) {
-        this.translations = this.translations || loadTranslationsToMemory(opts);
+        this.translations =
+          this.translations || loadTranslationsToMemory(opts, this.moduleResolverCWD);
         if (!this.translations) {
           throw new Error(
             'babel-plugin-i18n: No translations found.\n' +
