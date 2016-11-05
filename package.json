@@ -10,6 +10,10 @@
     "flow:check": "flow check",
     "lint": "eslint ."
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valscion/babel-plugin-i18n.git"
+  },
   "keywords": [
     "babel",
     "i18n",
