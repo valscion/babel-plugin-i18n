@@ -52,6 +52,7 @@ describe('__obj() errors', () => {
     { type: 'boolean', value: false },
     { type: 'null', value: null },
     { type: 'array', value: [1, 2, 3] },
+    { type: 'deep function', value: { aFunc: () => 'is not accepted' } },
   ].map(({ type, value }) => {
     test(`does not allow ${type} to come through`, () => {
       const code = '__obj("key")';
