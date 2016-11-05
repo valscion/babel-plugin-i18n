@@ -8,4 +8,4 @@ module.exports = function testPlugin(code) {
   });
 
   return result.code;
-}
+};
