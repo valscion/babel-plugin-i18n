@@ -15,9 +15,9 @@ console.log(otherDataTypes);"
 `;
 
 exports[`test strings 1`] = `
-"\'Hello, world!\';
-\'Two levels deep translation\';
-\'Very nested object\';
+"const greetings = \'Hello, world!\';
+const twoLevelsDeep = \'Two levels deep translation\';
+const veryNested = \'Very nested object\';
 
 const numberOne = 1;
 const booleanTrue = true;
