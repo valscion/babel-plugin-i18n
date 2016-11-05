@@ -1,0 +1,1 @@
+__('simple_string');

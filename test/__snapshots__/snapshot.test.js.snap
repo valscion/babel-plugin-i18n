@@ -1,0 +1,4 @@
+exports[`test string 1`] = `
+"__(\'simple_string\');
+"
+`;

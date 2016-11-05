@@ -4,7 +4,10 @@
   "description": "Statically convert translations to strings",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
+    "flow": "flow status",
+    "flow:check": "flow check"
   },
   "keywords": [
     "babel",
@@ -15,6 +18,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "flow-bin": "^0.34.0",
     "jest": "^16.0.2"
   }
 }
