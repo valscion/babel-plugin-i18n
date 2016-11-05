@@ -37,15 +37,33 @@ function getKeypath(path) {
   return keypathArg.value;
 }
 
+function getAstLiteralForTranslation(t, keypath, translation) {
+  if (translation === null) {
+    return t.NullLiteral();
+  }
+  switch (typeof translation) {
+    case 'string':
+      return t.StringLiteral(translation);
+    case 'number':
+      return t.NumericLiteral(translation);
+    case 'boolean':
+      return t.BooleanLiteral(translation);
+    default:
+      throw new KeypathTypeError(
+        keypath,
+        translation,
+        ['string', 'number', 'null', 'boolean']
+      );
+  }
+}
+
 function replaceKeypathWithString(t, path, translations) {
   const keypath = getKeypath(path);
 
   try {
     const translation = resolveKeypath(keypath, translations);
-    if (typeof translation !== 'string') {
-      throw new KeypathTypeError(keypath, translation, 'string');
-    }
-    path.replaceWith(t.StringLiteral(translation));
+    const literal = getAstLiteralForTranslation(t, keypath, translation);
+    path.replaceWith(literal);
   } catch (ex) {
     throw path.buildCodeFrameError(ex);
   }

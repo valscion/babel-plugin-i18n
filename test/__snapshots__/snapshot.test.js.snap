@@ -9,5 +9,9 @@ console.log(categories.party);"
 exports[`test strings 1`] = `
 "\'Hello, world!\';
 \'Two levels deep translation\';
-\'Very nested object\';"
+\'Very nested object\';
+
+const numberOne = 1;
+const booleanTrue = true;
+const thisIsNull = null;"
 `;
