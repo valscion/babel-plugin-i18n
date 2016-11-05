@@ -1,5 +1,5 @@
 {
-  "plugins": ["import", "flowtype"],
+  "plugins": ["import"],
 
   "settings": {},
 
@@ -212,28 +212,6 @@
     "import/default": "error",
     "import/export": "error",
     "import/no-named-as-default": "warn",
-    "import/no-duplicates": "warn",
-
-    /**
-     * Type declaration rules
-     * https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules
-     */
-    "flowtype/define-flow-type": "warn",
-    "flowtype/use-flow-type": "warn",
-    "flowtype/boolean-style": ["warn", "boolean"],
-    "flowtype/delimiter-dangle": ["warn", "never"],
-    "flowtype/generic-spacing": ["warn", "never"],
-    "flowtype/no-dupe-keys": "error",
-    "flowtype/no-weak-types": "off",
-    "flowtype/require-parameter-type": "off",
-    "flowtype/require-return-type": "off",
-    "flowtype/require-valid-file-annotation": "error",
-    "flowtype/semi": ["warn", "always"],
-    "flowtype/space-after-type-colon": ["warn", "always"],
-    "flowtype/space-before-generic-bracket": ["warn", "never"],
-    "flowtype/space-before-type-colon": ["warn", "never"],
-    "flowtype/type-id-match": ["warn", "^[A-Z].*$"],
-    "flowtype/union-intersection-spacing": ["warn", always],
-    "flowtype/valid-syntax": "error"
+    "import/no-duplicates": "warn"
   }
 }

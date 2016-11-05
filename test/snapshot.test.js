@@ -1,5 +1,3 @@
-/* @flow */
-
 const { join, basename } = require('path');
 const { readdirSync, statSync, readFileSync } = require('fs');
 
