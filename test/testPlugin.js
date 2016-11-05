@@ -2,7 +2,7 @@
 
 const transform = (code) => ({ code });
 
-module.exports = function testPlugin(code) {
+module.exports = function testPlugin(code, _translations) {
   const result = transform(code, {
     plugins: ['./index.js'],
   });

@@ -1,5 +1,5 @@
 const { join, basename } = require('path');
-const { readdirSync, statSync, readFileSync } = require('fs');
+const { readdirSync, readFileSync } = require('fs');
 
 const testPlugin = require('./testPlugin');
 
@@ -16,7 +16,7 @@ testNames.forEach((name) => {
     const source = readFileSync(join(FIXTURE_PATH, `${name}.js`), 'utf8');
     const translationJSON = readFileSync(join(FIXTURE_PATH, `${name}.translations.json`), 'utf8');
     const translations = JSON.parse(translationJSON);
-    const result = testPlugin(source);
+    const result = testPlugin(source, translations);
     expect(result).toMatchSnapshot();
   });
 });
