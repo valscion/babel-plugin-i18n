@@ -1,4 +1,1 @@
-exports[`test string 1`] = `
-"__(\'simple_string\');
-"
-`;
+exports[`test string 1`] = `"\'Hello, world!\';"`;

@@ -1,10 +1,8 @@
-// const { transform } = require('babel-core');
+const { transform } = require('babel-core');
 
-const transform = (code) => ({ code });
-
-module.exports = function testPlugin(code, _translations) {
+module.exports = function testPlugin(code, translations) {
   const result = transform(code, {
-    plugins: ['./index.js'],
+    plugins: [['./index.js', { translations }]],
   });
 
   return result.code;
