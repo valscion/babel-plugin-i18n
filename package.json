@@ -12,5 +12,9 @@
     "rails"
   ],
   "author": "Vesa Laakso <laakso.vesa@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^16.0.2"
+  }
 }
