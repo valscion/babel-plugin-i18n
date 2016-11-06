@@ -146,7 +146,14 @@ function createObjectPropertiesForTranslation(t, keypath, translation) {
 }
 
 function loadTranslationsToMemory(opts, cwd) {
-  if (!opts || !opts.translationLoader) {
+  if (!opts) {
+    return null;
+  }
+  // TODO: Setup all tests to use the "translationLoader" option
+  if (opts.__translationsForTests) {
+    return opts.__translationsForTests;
+  }
+  if (!opts.translationLoader) {
     return null;
   }
   const path = resolve(cwd, opts.translationLoader);
