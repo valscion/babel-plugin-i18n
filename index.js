@@ -68,7 +68,9 @@ function replaceKeypathWithString(t, path, translations) {
     const literal = getAstLiteralForTranslation(t, keypath, translation);
     path.replaceWith(literal);
   } catch (ex) {
-    if (ex instanceof PathNotFoundError && path.node.arguments.length === 2) {
+    // TODO: Come up with non-instanceof check, as it can't be transpiled correctly
+    // http://stackoverflow.com/q/33870684/1152564
+    if (/* ex.constructor === PathNotFoundError && */path.node.arguments.length === 2) {
       const defaultValueArgument = path.node.arguments[0].value;
       const defaultLiteral = getAstLiteralForTranslation(t, 'default value', defaultValueArgument);
       path.replaceWith(defaultLiteral);
