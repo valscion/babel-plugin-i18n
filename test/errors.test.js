@@ -33,7 +33,7 @@ describe('__() errors', () => {
 });
 
 
-describe.skip('__obj() errors', () => {
+describe('__obj() errors', () => {
   test('throwing error for missing value', () => {
     const code = '__obj("missing")';
     const translations = {};
