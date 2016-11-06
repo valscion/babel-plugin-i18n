@@ -7,7 +7,7 @@ Compiles these...
 ```js
 const myString = __("my.translation.path");
 const anEnum = __obj("example.countries");
-const lyrics = __obj("song");
+const lyrics = __arr("song");
 ```
 
 ...with this kind of translation...
