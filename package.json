@@ -30,6 +30,7 @@
     "find-babel-config": "^1.0.1"
   },
   "devDependencies": {
+    "babel-jest": "^16.0.0",
     "eslint": "^3.9.1",
     "eslint-plugin-flowtype": "^2.25.0",
     "eslint-plugin-import": "^2.1.0",
