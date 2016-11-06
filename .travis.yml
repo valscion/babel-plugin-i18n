@@ -9,14 +9,14 @@ node_js:
   - '4'
   - '6'
 before_install:
-  - npm i -g npm@^2.0.0
-before_script:
-  - npm prune
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+install: ~/.yarn/bin/yarn
+script: ~/.yarn/bin/yarn run test
 after_success:
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
   - export $(cat .to_export_back) &> /dev/null
-  - npm run semantic-release
+  - yarn run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
