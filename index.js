@@ -96,6 +96,21 @@ function replaceKeypathWithObject(t, path, translations) {
   }
 }
 
+function replaceKeypathWithArray(t, path, translations) {
+  const keypath = getKeypath(path);
+
+  try {
+    const translation = resolveKeypath(keypath, translations);
+    if (!Array.isArray(translation)) {
+      throw new KeypathTypeError(keypath, translation, 'array');
+    }
+    const elements = translation.map(item => getAstLiteralForTranslation(t, keypath, item));
+    path.replaceWith(t.ArrayExpression(elements));
+  } catch (ex) {
+    throw path.buildCodeFrameError(ex);
+  }
+}
+
 function astLiteralOrDeepObject(t, keypath, value) {
   if (Array.isArray(value)) {
     return value.map(item => astLiteralOrDeepObject(t, keypath, item));
@@ -166,6 +181,8 @@ module.exports = function translatePlugin({types: t}) {
           replaceKeypathWithString(t, path, this.translations);
         } else if (funcName === '__obj') {
           replaceKeypathWithObject(t, path, this.translations);
+        } else if (funcName === '__arr') {
+          replaceKeypathWithArray(t, path, this.translations);
         }
       },
     },

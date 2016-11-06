@@ -7,6 +7,7 @@ Compiles these...
 ```js
 const myString = __("my.translation.path");
 const anEnum = __obj("example.countries");
+const lyrics = __obj("song");
 ```
 
 ...with this kind of translation...
@@ -23,7 +24,12 @@ const anEnum = __obj("example.countries");
       "finland": "Suomi",
       "sweden": "Ruotsi"
     }
-  }
+  },
+  "song": [
+    "Hey!",
+    "Ho!",
+    "Let's go!"
+  ]
 }
 ```
 
@@ -34,7 +40,8 @@ const myString = "Hei, maailma!";
 const anEnum = {
   finland: "Suomi",
   sweden: "Ruotsi"
-}
+};
+const lyrics = ["Hey!", "Ho!", "Let's go!"];
 ```
 
 ## Installation
