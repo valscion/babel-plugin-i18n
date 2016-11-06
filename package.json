@@ -1,6 +1,5 @@
 {
   "name": "babel-plugin-i18n",
-  "version": "1.0.0",
   "description": "Statically convert translations to strings",
   "main": "index.js",
   "scripts": {
@@ -8,7 +7,8 @@
     "test:watch": "npm test -- --watch",
     "flow": "flow status",
     "flow:check": "flow check",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
     "index.js"
@@ -32,6 +32,7 @@
     "eslint": "^3.9.1",
     "eslint-plugin-flowtype": "^2.25.0",
     "eslint-plugin-import": "^2.1.0",
-    "jest": "^16.0.2"
+    "jest": "^16.0.2",
+    "semantic-release": "^4.3.5"
   }
 }
