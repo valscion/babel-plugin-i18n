@@ -1,5 +1,11 @@
 exports[`test arrays 1`] = `"const lyrics = [\'Is this the real life?\', \'Is this just fantasy?\', \'(Enjoy singing the rest of the song in your head)\', \'[Credits: https://git.io/vX89j]\'];"`;
 
+exports[`test dump 1`] = `
+"const complex = [[\'these deep arrays\'], {
+  going: [[[\'many\', \'levels\'], null, 1], 23]
+}];"
+`;
+
 exports[`test objects 1`] = `
 "const categories = {
   party: \'Party\',

@@ -42,5 +42,8 @@
         "the stars": "******"
       }
     }
-  }
+  },
+  "only_dump_can_handle": [["these deep arrays"], {
+    "going": [[["many", "levels"], null, 1], 23]
+  }]
 }

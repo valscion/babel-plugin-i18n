@@ -113,6 +113,37 @@ function replaceKeypathWithArray(t, path, translations) {
   }
 }
 
+function fullySerialize(t, keypath, translation) {
+  if (Array.isArray(translation)) {
+    const elements = translation.map(item => fullySerialize(t, keypath, item));
+    return t.ArrayExpression(elements);
+  }
+  if (translation !== null && typeof translation === 'object') {
+    const objProperties = Object.keys(translation).map(key => {
+      const value = translation[key];
+      return t.ObjectProperty(
+        t.Identifier(key),
+        fullySerialize(t, keypath, value)
+      );
+    });
+    return t.ObjectExpression(objProperties);
+  } else {
+    return getAstLiteralForTranslation(t, keypath, translation);
+  }
+}
+
+function replaceKeypathWithDump(t, path, translations) {
+  const keypath = getKeypath(path);
+
+  try {
+    const translation = resolveKeypath(keypath, translations);
+    const ast = fullySerialize(t, keypath, translation);
+    path.replaceWith(ast);
+  } catch (ex) {
+    throw path.buildCodeFrameError(ex);
+  }
+}
+
 function astLiteralOrDeepObject(t, keypath, value) {
   if (Array.isArray(value)) {
     return value.map(item => astLiteralOrDeepObject(t, keypath, item));
@@ -192,6 +223,8 @@ module.exports = function translatePlugin({types: t}) {
           replaceKeypathWithObject(t, path, this.translations);
         } else if (funcName === '__arr') {
           replaceKeypathWithArray(t, path, this.translations);
+        } else if (funcName === '__dump') {
+          replaceKeypathWithDump(t, path, this.translations);
         }
       },
     },

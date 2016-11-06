@@ -8,6 +8,7 @@ Compiles these...
 const myString = __("my.translation.path");
 const anEnum = __obj("example.countries");
 const lyrics = __arr("song");
+const veryComplex = __dump("complex");
 ```
 
 ...with this kind of translation...
@@ -29,7 +30,8 @@ const lyrics = __arr("song");
     "Hey!",
     "Ho!",
     "Let's go!"
-  ]
+  ],
+  "complex": [[["multilevel array"], 123], null]
 }
 ```
 
@@ -42,6 +44,7 @@ const anEnum = {
   sweden: "Ruotsi"
 };
 const lyrics = ["Hey!", "Ho!", "Let's go!"];
+const complex = [[["multilevel array"], 123], null];
 ```
 
 ## Installation
