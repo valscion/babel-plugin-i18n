@@ -1,3 +1,8 @@
+> ### UNSUPPORTED
+> 
+> Note that I (@valscion) don't currently use this plugin, so this is unsupported.
+> If you'd like to start using this and maintain it, feel free to open an issue and share your motivation.
+
 # babel-plugin-i18n
 
 Babel plugin to statically compile keypath denoted translation calls to literals.
